@@ -6,7 +6,9 @@ function photographerTemplate(data) {
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         const img = document.createElement( 'img' );
-        img.setAttribute("src", picture)
+        img.setAttribute("src", picture);
+        img.alt = `Portrait de ${name}`;
+
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
 
