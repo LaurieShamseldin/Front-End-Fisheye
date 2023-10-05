@@ -38,6 +38,3 @@ function photographerTemplate(data) {
     }
     return { name, picture, city, country, tagline, price, getUserCardDOM }
 }
-
-// "tagline": "Toujours à la recherche de LA photo",
-// "price": 300,
