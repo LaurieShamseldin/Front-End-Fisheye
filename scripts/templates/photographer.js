@@ -1,5 +1,5 @@
 function photographerTemplate(data) {
-    const { name, portrait, city, country, tagline, price } = data;
+    const { name, portrait, city, country, tagline, price, id } = data;
 
     const picture = `assets/photographers/${portrait}`;
 
@@ -11,6 +11,15 @@ function photographerTemplate(data) {
 
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
+
+        const spanLink = document.createElement('span');
+        spanLink.classList.add('hidden');
+        spanLink.textContent = `Galerie photo de ${name}`;
+
+        const link = document.createElement( 'a' );
+        link.setAttribute('href', `/photographer.html?${id}`);
+        link.setAttribute('role', 'link');
+        link.setAttribute('aria-label', `Galerie photo de ${name}`)
 
         const photographerInfo = document.createElement( 'div' );
         photographerInfo.classList.add('card-photographer');
@@ -27,8 +36,10 @@ function photographerTemplate(data) {
         photographerPackage.classList.add('card-package');
         photographerPackage.textContent = `${price}€/jour`;
 
-        article.appendChild(img);
-        article.appendChild(h2);
+        article.appendChild(link);
+        link.appendChild(img);
+        link.appendChild(h2);
+        link.appendChild(spanLink);
         article.appendChild(photographerInfo);
         photographerInfo.appendChild(local);
         photographerInfo.appendChild(photographerTagline);
@@ -36,5 +47,5 @@ function photographerTemplate(data) {
 
         return (article);
     }
-    return { name, picture, city, country, tagline, price, getUserCardDOM }
+    return { name, picture, city, country, tagline, price, id, getUserCardDOM }
 }
