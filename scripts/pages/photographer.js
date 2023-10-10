@@ -43,6 +43,12 @@ async function infoPhotographer(photographers, media) {
         const mediasPageDOM = mediaModel.mediaFactory(photographer.name);
         mediaContainer.appendChild(mediasPageDOM);
       });
+
+
+      const totalLikes = photographerMedias.reduce((total, mediaItem) => total + mediaItem.likes, 0);
+
+      const getPhotographerLikes = photographerModel.getPhotographerLikes(totalLikes);
+      document.querySelector('body').appendChild(getPhotographerLikes);
     }
 
   } catch(error) {

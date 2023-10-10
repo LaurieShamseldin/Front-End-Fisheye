@@ -33,6 +33,7 @@ function mediaTemplate(data) {
 
     const heart = document.createElement('i');
     heart.classList.add('fa-solid', 'fa-heart');
+    heart.setAttribute('aria-label', 'likes');
 
     buttonLike.appendChild(numberLikes);
     buttonLike.appendChild(heart);
@@ -61,14 +62,23 @@ function mediaTemplate(data) {
     titleImg.textContent = title;
     titleImg.classList.add('card-photographer-title');
 
-    const likesImg = document.createElement('p');
-    likesImg.textContent = likes;
-    likesImg.classList.add('card-photographer-like');
+    const buttonLike = document.createElement('button');
+    buttonLike.classList.add('card-photographer-button');
+
+    const numberLikes = document.createElement('span');
+    numberLikes.textContent = likes;
+
+    const heart = document.createElement('i');
+    heart.classList.add('fa-solid', 'fa-heart');
+    heart.setAttribute('aria-label', 'likes');
+
+    buttonLike.appendChild(numberLikes);
+    buttonLike.appendChild(heart);
 
     article.appendChild(videoPhotographer);
     article.appendChild(cardFooter);
     cardFooter.appendChild(titleImg);
-    cardFooter.appendChild(likesImg);
+    cardFooter.appendChild(buttonLike);
 
     return (article);
   };
