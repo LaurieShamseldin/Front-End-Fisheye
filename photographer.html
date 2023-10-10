@@ -5,15 +5,16 @@
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5cb0d5643f.js"></script>
     <title>Fisheye - photographe </title>
   </head>
   <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" />
+    <header role="banner">
+      <a href="/"><img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"/></a>
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <!-- <button class="contact_button" onclick="displayModal()">Contactez-moi</button> -->
       </div>
     </main>
     <div id="contact_modal">
@@ -32,7 +33,8 @@
 			</div>
 		</div>
     <script src="scripts/templates/photographer.js"></script>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
+    <script src="scripts/templates/medias.js"></script>
+    <script src="scripts/pages/photographer.js"></script>
+    <script src="scripts/utils/contactForm.js"></script>
   </body>
 </html>

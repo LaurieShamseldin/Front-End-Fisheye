@@ -46,6 +46,48 @@ function photographerTemplate(data) {
         photographerInfo.appendChild(photographerPackage);
 
         return (article);
-    }
-    return { name, picture, city, country, tagline, price, id, getUserCardDOM }
+    };
+
+    function getPhotographerPageDOM() {
+
+        const section = document.createElement('section');
+        section.classList.add('photographer-section');
+
+        const divPhotographer = document.createElement( 'div' );
+        divPhotographer.classList.add('about-photographer');
+
+        const h1 = document.createElement( 'h1' );
+        h1.textContent = name;
+        divPhotographer.appendChild(h1);
+
+        const local = document.createElement ( 'span' );
+        local.classList.add('card-city');
+        local.textContent = `${city}, ${country}`;
+        divPhotographer.appendChild(local);
+
+        const photographerTagline = document.createElement( 'p' );
+        photographerTagline.classList.add('card-tagline');
+        photographerTagline.textContent = tagline;
+        divPhotographer.appendChild(photographerTagline);
+
+        const button = document.createElement('button');
+        button.classList.add('contact_button');
+        button.classList.add('contact_modal');
+        button.textContent = 'Contactez-moi';
+
+        button.addEventListener('click', displayModal);
+
+        const img = document.createElement( 'img' );
+        img.setAttribute("src", picture);
+        img.alt = `Portrait de ${name}`;
+
+        section.appendChild(divPhotographer);
+        section.appendChild(button);
+        section.appendChild(img);
+
+        return (section);
+
+    };
+
+    return { name, picture, city, country, tagline, price, id, getUserCardDOM, getPhotographerPageDOM }
 }
