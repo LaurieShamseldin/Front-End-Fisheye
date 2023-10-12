@@ -195,3 +195,34 @@ form input:focus, form textarea:focus {
 .hidden {
     display:none;
 }
+
+.slider_btn {
+    background:none;
+    border:none;
+}
+
+.slider_container {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+
+#lightbox_modal {
+    /* display: none; */
+    background:white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.close {
+    position:absolute;
+    top:20px;
+    right:20px;
+    font-size:1.3rem;
+}
