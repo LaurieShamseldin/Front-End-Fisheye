@@ -1,5 +1,13 @@
 #contact_modal {
     display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
 }
 
 .photograph-header {
@@ -28,9 +36,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     padding: 35px;
     margin: auto;
+    min-height: 20%;
 }
 
 .modal header {
@@ -43,9 +52,9 @@
 }
 
 .modal header h2 {
-    font-size: 64px;
+    font-size: 3rem;
     font-weight: normal;
-    text-align: center;
+    width:55%;
 }
 
 form {
@@ -53,11 +62,12 @@ form {
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
+    margin-top:30px;
 }
 
 form label {
     color: #312E2E;
-    font-size: 36px;
+    font-size: 1.6rem;
 }
 
 form div {
@@ -68,11 +78,30 @@ form div {
     margin-bottom: 26px;
 }
 
-form input {
+form input, form textarea {
     width: 100%;
-    height: 68px;
+    height: 50px;
     border: none;
     border-radius: 5px;
+}
+
+form input:focus, form textarea:focus {
+    border:2px solid #312E2E;
+}
+
+.error-input {
+    border:2px solid #D3573C;
+}
+
+.error {
+    padding-top:10px;
+    font-weight:bold;
+}
+
+.message-send {
+    width:100%;
+    font-size:1.3rem;
+    margin-top:30px;
 }
 
 .about-photographer {
@@ -161,4 +190,8 @@ form input {
 
 .photographer-likes {
     margin-right:5px;
+}
+
+.hidden {
+    display:none;
 }

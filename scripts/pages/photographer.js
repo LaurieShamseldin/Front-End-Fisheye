@@ -49,6 +49,11 @@ async function infoPhotographer(photographers, media) {
 
       const getPhotographerLikes = photographerModel.getPhotographerLikes(totalLikes);
       document.querySelector('body').appendChild(getPhotographerLikes);
+
+      const headerForm = document.querySelector('.modal header');
+      const h2Form = document.querySelector('.modal-title')
+      h2Form.textContent +=  ` ${photographer.name}`;
+
     }
 
   } catch(error) {

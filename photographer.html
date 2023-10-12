@@ -12,24 +12,49 @@
     <header role="banner">
       <a href="/"><img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"/></a>
     </header>
-    <main id="main">
+    <main id="main" aria-hidden="false">
       <div class="photograph-header">
         <!-- <button class="contact_button" onclick="displayModal()">Contactez-moi</button> -->
       </div>
     </main>
-    <div id="contact_modal">
+    <div id="contact_modal" aria-hidden="true" role="dialog" aria-labelledby="titre-dialogue">
 			<div class="modal">
 				<header>
-          <h2>Contactez-moi</h2>
+          <h2 class="modal-title" id="titre-dialogue">Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <div class="close-modal-message sr-only" aria-hidden="true">
+            Appuyez sur la touche Échap pour fermer la modal.
+          </div>
         </header>
-				<form>
+				<form class="form-modal-contact" role="form">
 					<div>
-						<label>Prénom</label>
-						<input />
+						<label for="prenom">Prénom</label>
+						<input id="prenom" type="text" aria-required="true" aria-labelledby="prenom" required/>
+            <span class="error prenom-error hidden" aria-hidden="true" role="alert">Merci de saisir votre prénom.</span>
 					</div>
-          <button class="contact_button">Envoyer</button>
+
+          <div>
+						<label for="nom">Nom</label>
+						<input id="nom" type="text" aria-required="true" aria-labelledby="nom" required/>
+            <span class="error nom-error hidden" aria-hidden="true" role="alert">Merci de saisir votre nom.</span>
+					</div>
+
+          <div>
+						<label for="email">Email</label>
+						<input id="email" type="email" aria-required="true" aria-labelledby="email" required/>
+            <span class="error email-error hidden" aria-hidden="true" role="alert">Merci de saisir une adresse e-mail valide.</span>
+					</div>
+
+          <div>
+						<label for="message" aria-labelledby="message">Votre message</label>
+						<textarea id="message" aria-required="true" required></textarea>
+            <span class="error message-error hidden" aria-hidden="true" role="alert">Merci de saisir un message.</span>
+					</div>
+
+          <button class="contact_button" type="submit" value="Envoyer" aria-label="Envoyer le message">Envoyer</button>
 				</form>
+
+        <div class="message-send hidden" aria-hidden="true">Merci pour votre message ! Nous vous répondrons dès que possible.</div>
 			</div>
 		</div>
     <script src="scripts/templates/photographer.js"></script>
