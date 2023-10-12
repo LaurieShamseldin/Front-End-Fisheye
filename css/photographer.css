@@ -199,6 +199,7 @@ form input:focus, form textarea:focus {
 .slider_btn {
     background:none;
     border:none;
+    margin: 0 30px;
 }
 
 .slider_container {
@@ -206,11 +207,23 @@ form input:focus, form textarea:focus {
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 100%;
 }
 
+.slider_img {
+    display:flex;
+    max-height: 90%;
+    width: 80%;
+}
+
+.slider_img img, .slider_img video {
+    max-height: 100%;
+    object-fit: contain;
+    max-width: 100%;
+}
 
 #lightbox_modal {
-    /* display: none; */
+    display: none;
     background:white;
     position: fixed;
     top: 0;
@@ -225,4 +238,10 @@ form input:focus, form textarea:focus {
     top:20px;
     right:20px;
     font-size:1.3rem;
+    cursor:pointer;
+}
+
+.no-scroll {
+ height: 90vh;
+ overflow-y: hidden;
 }

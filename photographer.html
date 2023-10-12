@@ -58,15 +58,19 @@
 			</div>
 		</div>
 
-    <div id="lightbox_modal" aria-hidden="true" role="dialog" >
-      <i class="fa-solid fa-xmark close" title="Fermer la pop up"></i>
+    <div id="lightbox_modal" aria-hidden="true" role="dialog" aria-labelledby="modal-lightbox-title">
+      <i class="fa-solid fa-xmark close" title="Fermer la pop up" role="button" aria-label="Fermer la fenêtre modale" tabindex="0"></i>
+      <span class="sr-only" id="modal-lightbox-title" aria-hiden="true">Galerie photos</span>
+      <div class="close-modal-message sr-only" aria-hidden="true">
+        Appuyez sur la touche Échap pour fermer la modal.
+      </div>
         <div class="slider_container">
-          <button id="previous-btn" class="slider_btn">
-            <i class="fas fa-chevron-left" aria-label="previous image"></i>
+          <button id="previous-btn" class="slider_btn" tabindex="0">
+            <i class="fas fa-chevron-left" aria-label="Image précédente"></i>
           </button>
           <div class="slider_img"></div>
-          <button id="next-btn" class="slider_btn" aria-label="next image">
-            <i class="fas fa-chevron-right" role="button" aria-label="next image"></i>
+          <button id="next-btn" class="slider_btn" tabindex="0">
+            <i class="fas fa-chevron-right" role="button" aria-label="Image suivante"></i>
           </button>
         </div>
     </section>
@@ -74,6 +78,7 @@
     <script src="scripts/templates/photographer.js"></script>
     <script src="scripts/templates/medias.js"></script>
     <script src="scripts/pages/photographer.js"></script>
+    <script src="scripts/utils/lightbox.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
   </body>
 </html>
