@@ -156,6 +156,7 @@ form input:focus, form textarea:focus {
     color:#901C1C;
     font-size:1.2rem;
     margin-block-start: 5px;
+    margin-block-end: 0px;
 }
 
 .card-photographer-button {
