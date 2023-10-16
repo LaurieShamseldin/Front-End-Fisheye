@@ -38,24 +38,30 @@ async function infoPhotographer(photographers, media) {
       document.querySelector('#main').appendChild(mediaContainer);
 
       const photographerMedias = media.filter(mediaItem => mediaItem.photographerId === photographeId);
-      photographerMedias.forEach(mediaItem => {
-        const mediaModel = mediaTemplate(mediaItem);
-        const mediasPageDOM = mediaModel.mediaFactory(photographer.name);
-        mediaContainer.appendChild(mediasPageDOM);
 
-        const numberLikes = mediasPageDOM.querySelector('.likes-media');
-        const buttonLike = mediasPageDOM.querySelector('.card-photographer-button');
-        // const totalLikes = photographerMedias.reduce((total, mediaItem) => total + mediaItem.likes, 0);
-        buttonLike.addEventListener('click', () => toggleLike(mediaItem.likes, mediaItem.id, numberLikes));
+      function displayPhotographerMedias(listPhotographer) {
+          mediaContainer.innerHTML = "";
+          listPhotographer.forEach(mediaItem => {
+          const mediaModel = mediaTemplate(mediaItem);
+          const mediasPageDOM = mediaModel.mediaFactory(photographer.name);
+          mediaContainer.appendChild(mediasPageDOM);
 
-        // Lightbox click on image
-        const mediaContent = mediasPageDOM.querySelector('.card-media');
-        mediaContent.addEventListener("click", () => {
-          const index = photographerMedias.indexOf(mediaItem);
-          displayMediaLightbox(photographerMedias, index, photographer);
+          const numberLikes = mediasPageDOM.querySelector('.likes-media');
+          const buttonLike = mediasPageDOM.querySelector('.card-photographer-button');
+          // const totalLikes = photographerMedias.reduce((total, mediaItem) => total + mediaItem.likes, 0);
+          buttonLike.addEventListener('click', () => toggleLike(mediaItem.likes, mediaItem.id, numberLikes));
+
+          // Lightbox click on image
+          const mediaContent = mediasPageDOM.querySelector('.card-media');
+          mediaContent.addEventListener("click", () => {
+            const index = photographerMedias.indexOf(mediaItem);
+            displayMediaLightbox(photographerMedias, index, photographer);
+          });
+
         });
+      };
 
-      });
+      displayPhotographerMedias(photographerMedias);
 
       
       const totalLikes = photographerMedias.reduce((total, mediaItem) => total + mediaItem.likes, 0);
@@ -66,7 +72,11 @@ async function infoPhotographer(photographers, media) {
       const h2Form = document.querySelector('.modal-title')
       h2Form.textContent +=  ` ${photographer.name}`;
 
-    }
+      const select = document.getElementById('sort');
+      select.addEventListener("change",  function() {
+        sort(select.value, photographerMedias, displayPhotographerMedias);
+      });
+    };
 
   } catch(error) {
     console.error(error);
