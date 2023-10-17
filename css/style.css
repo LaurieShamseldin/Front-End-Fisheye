@@ -48,6 +48,8 @@ h1 {
 .photographer_section article img {
     height: 200px;
     width: 200px;
+    border-radius:200px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .photographer_section article a {

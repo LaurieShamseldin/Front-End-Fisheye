@@ -117,6 +117,8 @@ form input:focus, form textarea:focus {
 
 .photograph-header img {
     margin-right:50px;
+    border-radius:200px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .photographer-section {

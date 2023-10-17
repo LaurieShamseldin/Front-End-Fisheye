@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-function displayModal() {
+const displayModal = function() {
 	const modal = document.getElementById("contact_modal");
 	const main = document.getElementById("main");
 
@@ -9,7 +8,7 @@ function displayModal() {
 
 	const inputPrenom = document.getElementById("prenom");
 	inputPrenom.focus();
-}
+};
 
 function closeModal() {
 	const modal = document.getElementById("contact_modal");
@@ -123,3 +122,5 @@ form.addEventListener("keydown", function(event) {
 		submitForm(event); 
 	}
 });
+
+window.displayModal = displayModal;

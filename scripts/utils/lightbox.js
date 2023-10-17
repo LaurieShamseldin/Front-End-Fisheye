@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-unused-vars
 function displayMediaLightbox(arrayMedia, index, photographer) {
-	// Display modal
 	displayLightboxModal();
 
 	const currentMedia = arrayMedia[index];

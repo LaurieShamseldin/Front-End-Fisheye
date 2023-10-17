@@ -6,7 +6,6 @@ function getURLParam() {
 		search = search.substring(1);
 	}
 	if (search && search.endsWith("=")) {
-		// Supprimez le signe égal à la fin
 		search = search.slice(0, -1);
 	}
 	return search;
@@ -43,14 +42,13 @@ async function infoPhotographer(photographers, media) {
 			function displayPhotographerMedias(listPhotographer) {
 				mediaContainer.innerHTML = "";
 				listPhotographer.forEach(mediaItem => {
-					// eslint-disable-next-line no-undef
-					const mediaModel = mediaTemplate(mediaItem);
+				
+					const mediaModel = window.mediaTemplate(mediaItem);
 					const mediasPageDOM = mediaModel.mediaFactory(photographer.name);
 					mediaContainer.appendChild(mediasPageDOM);
 
 					const numberLikes = mediasPageDOM.querySelector(".likes-media");
 					const buttonLike = mediasPageDOM.querySelector(".card-photographer-button");
-					// const totalLikes = photographerMedias.reduce((total, mediaItem) => total + mediaItem.likes, 0);
 					// eslint-disable-next-line no-undef
 					buttonLike.addEventListener("click", () => toggleLike(mediaItem.likes, mediaItem.id, numberLikes));
 
@@ -58,8 +56,7 @@ async function infoPhotographer(photographers, media) {
 					const mediaContent = mediasPageDOM.querySelector(".card-media");
 					mediaContent.addEventListener("click", () => {
 						const index = photographerMedias.indexOf(mediaItem);
-						// eslint-disable-next-line no-undef
-						displayMediaLightbox(photographerMedias, index, photographer);
+						window.displayMediaLightbox(photographerMedias, index, photographer);
 					});
 
 				});
@@ -76,11 +73,12 @@ async function infoPhotographer(photographers, media) {
 			const h2Form = document.querySelector(".modal-title");
 			h2Form.textContent +=  ` ${photographer.name}`;
 
-			/* global sort */
 			const select = document.getElementById("sort");
 			select.addEventListener("change",  function() {
-				sort(select.value, photographerMedias, displayPhotographerMedias);
+				window.sort(select.value, photographerMedias, displayPhotographerMedias);
 			});
+		} else {
+			window.location.href = "/";
 		}
 
 	} catch(error) {

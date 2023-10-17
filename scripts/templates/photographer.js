@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-function photographerTemplate(data) {
+const photographerTemplate = function(data) {
 	const { name, portrait, city, country, tagline, price, id } = data;
 
 	const picture = `assets/photographers/${portrait}`;
@@ -76,8 +75,8 @@ function photographerTemplate(data) {
 		button.classList.add("contact_modal");
 		button.textContent = "Contactez-moi";
 
-		// eslint-disable-next-line no-undef
-		button.addEventListener("click", displayModal);
+	
+		button.addEventListener("click", window.displayModal);
 
 		const img = document.createElement( "img" );
 		img.setAttribute("src", picture);
@@ -120,4 +119,6 @@ function photographerTemplate(data) {
 	}
 
 	return { name, picture, city, country, tagline, price, id, getUserCardDOM, getPhotographerPageDOM, getPhotographerLikes};
-}
+};
+
+window.photographerTemplate = photographerTemplate;

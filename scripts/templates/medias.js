@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-function mediaTemplate(data) {
+const mediaTemplate = function(data) {
 	const { title, image, video, likes, price, id } = data;
 
 	function mediaFactory(photographerName) {
@@ -49,8 +48,6 @@ function mediaTemplate(data) {
 		cardFooter.appendChild(titleImg);
 		cardFooter.appendChild(buttonLike);
 
-		// buttonLike.addEventListener('click',() => toggleLike(likes, id, numberLikes));
-
 		return (article);
 	}
 
@@ -93,10 +90,10 @@ function mediaTemplate(data) {
 		cardFooter.appendChild(titleImg);
 		cardFooter.appendChild(buttonLike);
 
-		// buttonLike.addEventListener('click', () => toggleLike(likes, id, numberLikes));
-
 		return (article);
 	}
 
 	return { title, image, video, likes, price, id, mediaFactory, getImagePhotographer, getVideoPhotographer };
-}
+};
+
+window.mediaTemplate = mediaTemplate;
